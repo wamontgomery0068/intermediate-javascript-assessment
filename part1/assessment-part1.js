@@ -98,6 +98,7 @@ class Vehicle {
     this.gasRemaining = 100;
   }
 }
+
 // ***** Step 2
 
 //// Next, assign a function called drive to the Vehicle prototype.  When invoked,
@@ -149,27 +150,15 @@ mustang.drive();
 
 // CODE HERE...
 
-// Notes
-
-// The String.prototype property represents the String prototype object.
-// All String instances inherit from String.prototype.
-// Changes to the String prototype object are propagated to all String instances.
-
-// In this example we are adding a method on to the String.prototype named "grammerPolice"
-
-String.prototype.grammerPolice = function() {
-  newString = this.toLocaleLowerCase().split("");
-  for( var i = 0; i < newString.length; i ++ ) {
+String.prototype.grammarPolice = function(){
+  newString = this.toLowerCase().split(" ");
+  for (var i = 0; i < newString.length; i ++){
     newString[i] = newString[i].charAt(0).toUpperCase() + newString[i].substring(1);
   }
 
-  // Remember that join() methods create and returns a new string by concatenating all of the elements in an array or an array like object.
-  newString = newString.join("");
+  newString = newString.join(" ");
   return newString;
-};
-
-// 
-
+}
 
 
 
