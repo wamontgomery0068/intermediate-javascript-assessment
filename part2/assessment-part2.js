@@ -45,7 +45,19 @@ function noWeakLink() {
   })
   // CODE HERE...
 
-}
+  // Reminder the response is what you get back from the "Get Request" and the response back is the data.
+  // So we are wanting to get data as our response.
+
+  .then(response => {
+    firstUser = response.data[0];
+    return response;
+  })
+  .then(response => {
+    thirdUser = response.data[2];
+    return response.data[9];
+  })
+
+};
 
 
 
@@ -75,6 +87,16 @@ function large() {
 }
 // CODE HERE...
 
+// 
+
+// In React we normally bind event handlers in Class Components this is called implicit binding.
+// In this instance we are actually explicitly binding. 
+
+boundToElephant = large.bind(elephant);
+
+// Reminder if you want to invoke a function you need to put () at the end.
+// This invokes the variable boundToElephant;
+boundToElephant();
 
 
 // *************
@@ -89,6 +111,9 @@ function large() {
 
 // CODE HERE...
 
+deathStar = (capacity, crew) => {
+  return capacity.bind(crew);
+};
 
 
 // *************
@@ -104,6 +129,11 @@ function large() {
 
 // CODE HERE...
 
+accountingOffice = assets => {
+  return liabilities => {
+    return assets + liabilities;
+  };
+};
 
 
 // *************
@@ -129,6 +159,14 @@ function large() {
 
 // CODE HERE...
 
+forgetter = name => {
+  var array = [];
+
+  return item => {
+    array.push(item);
+    return { name: name, remember: array};
+  };
+};
 
 
 // *************
